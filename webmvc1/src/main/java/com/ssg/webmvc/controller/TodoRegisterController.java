@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -23,9 +24,25 @@ public class TodoRegisterController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 로그인한 사용자만이 Todo 를 등록할 수 있도록 재구성
 
-        log.info("/todo/register GET .......");
+//        HttpSession session = req.getSession();
+//        // 기존의 SessionID가 없는 새로운 요청이라면
+//        if (session.isNew()) {
+//            log.info("SessionID가 ㅇ벗는 새로운 요청한 사용자");
+//            resp.sendRedirect("/login");
+//            return;
+//        }
+//
+//        if (session.getAttribute("loginIngo") == null) {
+//            log.info("로그인한 정보가 없는 사용자");
+//            resp.sendRedirect("/login");
+//            return;
+//        }
+
         req.getRequestDispatcher("/WEB-INF/todo/register.jsp").forward(req,resp);
+
+
 
     }
 
