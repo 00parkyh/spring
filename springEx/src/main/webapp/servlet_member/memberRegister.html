@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+<form name="login_form" class="register">
+    <fieldset>
+        <h1>회원가입</h1>
+        <small>아이디,비밀번호,성별,취미를 입력해 주세요.</small>
+        <hr />
+        <p>
+            <label
+            >아이디<br /><input
+                    type="text"
+                    placeholder="예 : yumi_123"
+                    name="id"
+                    required
+            /><br />
+                <small>영문,숫자,밑줄(_)만 사용 가능. 3~20자</small>
+            </label>
+        </p>
+        <p>
+            <label>
+                비밀번호<br /><input
+                    type="password"
+                    placeholder="비밀번호 입력"
+                    name="pwd"
+                    required
+            /><br />
+                <small>6자 이상을 권장합니다.</small>
+            </label>
+        </p>
+
+        <p>
+            <label>
+                비밀번호 확인<br /><input
+                    type="password"
+                    placeholder="비밀번호 재입력"
+                    name="pwdCheck"
+                    required
+            /><br />
+                <small>비밀번호를 다시 입력하세요.</small>
+            </label>
+        </p>
+
+        <fieldset class="fieldset-dashed">
+            <legend>성별</legend>
+            <div class="radio-group">
+                <div class="input-group">
+                    <input type="radio" id="male" name="gender" value="male" />
+                    <label for="male">남성</label>
+                </div>
+                <div class="input-group">
+                    <input type="radio" id="female" name="gender" value="female" />
+                    <label for="female">여성</label>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="fieldset-dashed">
+            <legend>취미 (복수 선택 가능)</legend>
+            <div class="checkbox-grid">
+                <div class="input-group">
+                    <input
+                            type="checkbox"
+                            id="reading"
+                            name="hobby"
+                            value="reading"
+                    />
+                    <label for="reading">독서</label>
+                </div>
+                <div class="input-group">
+                    <input type="checkbox" id="scuba" name="hobby" value="scuba" />
+                    <label for="scuba">스킨스쿠버</label>
+                </div>
+                <div class="input-group">
+                    <input type="checkbox" id="swim" name="hobby" value="swim" />
+                    <label for="swim">수영</label>
+                </div>
+                <div class="input-group">
+                    <input type="checkbox" id="bike" name="hobby" value="bike" />
+                    <label for="bike">자전거</label>
+                </div>
+                <div class="input-group">
+                    <input type="checkbox" id="run" name="hobby" value="run" />
+                    <label for="run">러닝</label>
+                </div>
+            </div>
+        </fieldset>
+        <small>선택사항입니다.</small>
+
+        <div class="button-group">
+            <button type="submit" class="btn-submit" onclick="memberRegister()">
+                가입하기
+            </button>
+            <button type="reset" class="btn-reset">다시 입력</button>
+        </div>
+    </fieldset>
+</form>
+<script>
+    function memberRegister() {
+        const idid = /^[a-zA-Z0-9]{3,20}$/;
+
+        let form = document.login_form;
+        let id = form.id.value;
+        let pwd = form.pwd.value;
+        let pwd_check = form.pwdCheck.value;
+
+        if (!idid.test(id)) {
+            alert('아이디 입력 조건에 부합하지 않습니다.');
+            form.reset();
+        } else if (pwd.length < 6) {
+            alert('6자리 미만은 권장 되지 않습니다.');
+            form.reset();
+        } else if (pwd != pwd_check) {
+            alert('서로 다른 비밀번호를 입력 하였습니다.');
+            form.reset();
+        } else {
+            form.method = 'post';
+            form.action = '/member/register';
+            form.submit();
+        }
+    }
+</script>
+</body>
+</html>
