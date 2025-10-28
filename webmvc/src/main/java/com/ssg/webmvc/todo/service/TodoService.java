@@ -74,7 +74,7 @@ public enum TodoService {
         return dtoList;
     }
 
-//    public void deleteOne(Long tno) throws Exception {
-//        dao.deleteOne(tno);
-//    }
+    public void deleteOne(Long tno) throws Exception {
+        dao.deleteOne(tno);
+    }
 }

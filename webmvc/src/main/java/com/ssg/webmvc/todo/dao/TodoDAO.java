@@ -91,6 +91,7 @@ public class TodoDAO {
         @Cleanup PreparedStatement pstmt = connection.prepareStatement(sql);
         pstmt.setLong(1, tno);
         pstmt.executeUpdate();
+
     }
 
     public void updateOne(TodoVo todoVo) throws Exception{

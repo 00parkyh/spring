@@ -19,7 +19,7 @@
     <div><button name="modify" type="submit">Modify</button></div>
 </form>
 <form action="/todo/remove" method="post">
-    <div><button name="remove" type="submit">Remove</button></div>
+    <div><button name="tno" type="submit" value="${dto.tno}">Remove</button></div>
 </form>
 </body>
 </html>
