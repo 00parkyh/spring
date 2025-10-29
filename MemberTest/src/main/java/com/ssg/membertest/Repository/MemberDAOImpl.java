@@ -1,6 +1,6 @@
 package com.ssg.membertest.Repository;
 
-import com.ssg.membertest.DTO.Member;
+import com.ssg.membertest.DTO.MemberDTO;
 import com.ssg.membertest.VO.MemberVO;
 import lombok.Cleanup;
 import lombok.RequiredArgsConstructor;

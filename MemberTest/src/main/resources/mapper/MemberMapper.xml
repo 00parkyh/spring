@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssg.membertest.mapper.MemberMapper">
+
+    <insert id="registerMember" parameterType="com.ssg.membertest.DTO.MemberDTO">
+        insert into member (userid, userPwd, userName, userEmail) values (#{userid}, #{userPwd}, #{userName}, #{userEmail})
+    </insert>
+
+    <select id="memberList" resultType="com.ssg.membertest.DTO.MemberDTO">
+        select * from member
+    </select>
+
+</mapper>

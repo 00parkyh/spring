@@ -1,6 +1,6 @@
 package com.ssg.membertest.Service;
 
-import com.ssg.membertest.DTO.Member;
+import com.ssg.membertest.DTO.MemberDTO;
 import com.ssg.membertest.Repository.MemberDAO;
 import com.ssg.membertest.VO.MemberVO;
 import lombok.RequiredArgsConstructor;

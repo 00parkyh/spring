@@ -38,11 +38,13 @@
     <!-- @Transactional 활성화 -->
     <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
 
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
-
 <!--    매퍼인터페이스 등록-->
     <mybatis:scan base-package="com.ssg.membertest.mapper"></mybatis:scan>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!--        mappers 폴더 밑에 폴더가 있어도 상관없고 mappers/**/ *.xml 은 이름에 상관없는 xml 파일 -->
+        <property name="mapperLocations" value="classpath:/mapper/**/*.xml"/>
+    </bean>
 
 </beans>

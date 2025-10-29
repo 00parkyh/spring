@@ -1,6 +1,6 @@
 package com.ssg.membertest.member.service;
 
-import com.ssg.membertest.DTO.Member;
+import com.ssg.membertest.DTO.MemberDTO;
 import com.ssg.membertest.Service.MemberService;
 import com.ssg.membertest.VO.MemberVO;
 import lombok.extern.log4j.Log4j2;
